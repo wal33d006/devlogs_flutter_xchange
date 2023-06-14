@@ -1,3 +1,7 @@
+import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_cubit.dart';
+import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_initial_params.dart';
+import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_navigator.dart';
+import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/users_repository.dart';
@@ -18,6 +22,10 @@ void main() async {
   getIt.registerSingleton<UsersRepository>(RestApiUsersRepository(getIt()));
   getIt.registerSingleton<AppNavigator>(AppNavigator());
   getIt.registerSingleton<UsersListNavigator>(UsersListNavigator(getIt()));
+  getIt.registerSingleton<OnboardingNavigator>(OnboardingNavigator(getIt()));
+  getIt.registerFactoryParam<OnboardingCubit, OnboardingInitialParams, dynamic>(
+    (params, _) => OnboardingCubit(params),
+  );
   getIt.registerFactoryParam<UsersListCubit, UsersListInitialParams, dynamic>(
     (params, _) => UsersListCubit(
       params,
@@ -39,11 +47,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        colorScheme: Theme.of(context).colorScheme.copyWith(
+              primary: const Color(0xFF2F384C),
+            ),
       ),
-      home: UsersListPage(cubit: getIt(param1: const UsersListInitialParams())),
+      home: OnboardingPage(
+        cubit: getIt(param1: const OnboardingInitialParams()),
+      ),
     );
   }
 }
