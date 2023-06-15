@@ -1,4 +1,4 @@
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_cubit.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'onboarding_state.dart';

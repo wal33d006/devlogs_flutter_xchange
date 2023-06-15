@@ -1,9 +1,9 @@
 import 'package:devlogs_flutter_xchange/domain/use_cases/check_for_existing_user_use_case.dart';
 import 'package:devlogs_flutter_xchange/domain/use_cases/social_login_use_case.dart';
-import 'package:devlogs_flutter_xchange/ui/home_master/home_master_initial_params.dart';
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_initial_params.dart';
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_navigator.dart';
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_state.dart';
+import 'package:devlogs_flutter_xchange/features/home_master/home_master_initial_params.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_initial_params.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_navigator.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OnboardingCubit extends Cubit<OnboardingState> {

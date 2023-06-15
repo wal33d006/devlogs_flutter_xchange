@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:devlogs_flutter_xchange/ui/users_list/users_list_cubit.dart';
-import 'package:devlogs_flutter_xchange/ui/users_list/users_list_state.dart';
-import 'package:devlogs_flutter_xchange/ui/widgets/user_card.dart';
+import 'package:devlogs_flutter_xchange/features/users_list/users_list_cubit.dart';
+import 'package:devlogs_flutter_xchange/features/users_list/users_list_state.dart';
+import 'package:devlogs_flutter_xchange/features/widgets/user_card.dart';
 
 class UsersListPage extends StatefulWidget {
   final UsersListCubit cubit;

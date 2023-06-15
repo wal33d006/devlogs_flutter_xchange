@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:devlogs_flutter_xchange/ui/user_details/user_details_cubit.dart';
-import 'package:devlogs_flutter_xchange/ui/user_details/user_details_state.dart';
+import 'package:devlogs_flutter_xchange/features/user_details/user_details_cubit.dart';
+import 'package:devlogs_flutter_xchange/features/user_details/user_details_state.dart';
 
 class UserDetailsPage extends StatefulWidget {
   final UserDetailsCubit cubit;

@@ -1,4 +1,4 @@
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_initial_params.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_initial_params.dart';
 
 class OnboardingState {
   final bool isLoading;

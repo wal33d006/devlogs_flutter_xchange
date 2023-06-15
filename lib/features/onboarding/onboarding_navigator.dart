@@ -1,6 +1,6 @@
-import 'package:devlogs_flutter_xchange/ui/home_master/home_master_navigator.dart';
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_initial_params.dart';
-import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_page.dart';
+import 'package:devlogs_flutter_xchange/features/home_master/home_master_navigator.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_initial_params.dart';
+import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:devlogs_flutter_xchange/main.dart';
 import 'package:devlogs_flutter_xchange/navigation/app_navigator.dart';
