@@ -1,20 +1,29 @@
+import 'package:devlogs_flutter_xchange/ui/home_master/home_master_navigator.dart';
 import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_initial_params.dart';
 import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_page.dart';
 import 'package:flutter/material.dart';
 import 'package:devlogs_flutter_xchange/main.dart';
 import 'package:devlogs_flutter_xchange/navigation/app_navigator.dart';
 
-class OnboardingNavigator {}
+class OnboardingNavigator with HomeMasterRoute {
+  OnboardingNavigator(this.navigator);
 
-mixin OnboardingRoute {
-openOnboarding(OnboardingInitialParams initialParams) {
-navigator.push(
-context,
-OnboardingPage(cubit: getIt(param1: initialParams)),
-);
+  @override
+  late BuildContext context;
+
+  @override
+  AppNavigator navigator;
 }
 
-AppNavigator get navigator;
+mixin OnboardingRoute {
+  openOnboarding(OnboardingInitialParams initialParams) {
+    navigator.push(
+      context,
+      OnboardingPage(cubit: getIt(param1: initialParams)),
+    );
+  }
 
-BuildContext get context;
+  AppNavigator get navigator;
+
+  BuildContext get context;
 }

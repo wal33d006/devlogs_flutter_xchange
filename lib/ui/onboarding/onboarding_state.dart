@@ -1,9 +1,15 @@
 import 'package:devlogs_flutter_xchange/ui/onboarding/onboarding_initial_params.dart';
 
 class OnboardingState {
-  const OnboardingState();
+  final bool isLoading;
 
-  factory OnboardingState.initial({required OnboardingInitialParams initialParams}) => const OnboardingState();
+  const OnboardingState({required this.isLoading});
 
-  OnboardingState copyWith() => const OnboardingState();
+  factory OnboardingState.initial({required OnboardingInitialParams initialParams}) => const OnboardingState(
+        isLoading: false,
+      );
+
+  OnboardingState copyWith({bool? isLoading}) => OnboardingState(
+        isLoading: isLoading ?? this.isLoading,
+      );
 }

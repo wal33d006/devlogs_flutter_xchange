@@ -21,6 +21,7 @@ class _OnboardingState extends State<OnboardingPage> {
   @override
   void initState() {
     super.initState();
+    cubit.navigator.context = context;
   }
 
   @override
@@ -43,10 +44,27 @@ class _OnboardingState extends State<OnboardingPage> {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
-                onPressed: () {},
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
-                  child: Text('Continue with Google'),
+                onPressed: cubit.onTapGoogleSignIn,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+                  child: BlocBuilder(
+                    bloc: cubit,
+                    builder: (context, state) {
+                      state as OnboardingState;
+                      if (state.isLoading) {
+                        return SizedBox(
+                          height: 25,
+                          width: 25,
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: Theme.of(context).colorScheme.onPrimary,
+                            ),
+                          ),
+                        );
+                      }
+                      return const Text('Continue with Google');
+                    },
+                  ),
                 ),
               ),
             ),
