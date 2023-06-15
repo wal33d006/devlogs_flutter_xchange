@@ -22,6 +22,7 @@ class _OnboardingState extends State<OnboardingPage> {
   void initState() {
     super.initState();
     cubit.navigator.context = context;
+    cubit.onInit();
   }
 
   @override

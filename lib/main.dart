@@ -1,6 +1,10 @@
+import 'package:devlogs_flutter_xchange/data/insecure_local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/data/mock_auth_repository.dart';
+import 'package:devlogs_flutter_xchange/data/mock_users_repository.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/auth_repository.dart';
+import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/domain/stores/user_store.dart';
+import 'package:devlogs_flutter_xchange/domain/use_cases/check_for_existing_user_use_case.dart';
 import 'package:devlogs_flutter_xchange/domain/use_cases/social_login_use_case.dart';
 import 'package:devlogs_flutter_xchange/ui/home_master/home_master_cubit.dart';
 import 'package:devlogs_flutter_xchange/ui/home_master/home_master_initial_params.dart';
@@ -25,12 +29,22 @@ final getIt = GetIt.instance;
 
 void main() async {
   getIt.registerSingleton<NetworkRepository>(NetworkRepository());
-  getIt.registerSingleton<UsersRepository>(RestApiUsersRepository(getIt()));
+  getIt.registerSingleton<UsersRepository>(MockUsersRepository());
   getIt.registerSingleton<AuthRepository>(MockAuthRepository());
+  getIt.registerSingleton<LocalStorageRepository>(InsecureLocalStorageRepository());
   getIt.registerSingleton<UserStore>(UserStore());
   getIt.registerSingleton<AppNavigator>(AppNavigator());
+  getIt.registerSingleton<CheckForExistingUserUseCase>(
+    CheckForExistingUserUseCase(
+      getIt(),
+      getIt(),
+      getIt(),
+    ),
+  );
   getIt.registerSingleton<SocialLoginUseCase>(
     SocialLoginUseCase(
+      getIt(),
+      getIt(),
       getIt(),
       getIt(),
     ),
@@ -47,6 +61,7 @@ void main() async {
   getIt.registerFactoryParam<OnboardingCubit, OnboardingInitialParams, dynamic>(
     (params, _) => OnboardingCubit(
       params,
+      getIt(),
       getIt(),
       getIt(),
     ),
