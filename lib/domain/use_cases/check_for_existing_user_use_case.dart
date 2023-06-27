@@ -17,7 +17,7 @@ class CheckForExistingUserUseCase {
   );
 
   Future<Either<ExistingUserFailure, User>> execute() {
-    return _localStorageRepository.get('USER_EMAIL').then(
+    return _localStorageRepository.getString('USER_EMAIL').then(
           (value) => value.fold(
             (l) => left(ExistingUserFailure(error: l.error)),
             (email) {
