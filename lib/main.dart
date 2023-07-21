@@ -1,3 +1,5 @@
+import 'package:devlogs_flutter_xchange/data/firebase/firebase_auth_repository.dart';
+import 'package:devlogs_flutter_xchange/data/firebase/firebase_users_repository.dart';
 import 'package:devlogs_flutter_xchange/data/insecure_local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/data/mock_auth_repository.dart';
 import 'package:devlogs_flutter_xchange/data/mock_users_repository.dart';
@@ -16,7 +18,9 @@ import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_cubit.dar
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_navigator.dart';
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_page.dart';
+import 'package:devlogs_flutter_xchange/firebase_options.dart';
 import 'package:devlogs_flutter_xchange/theme/theme_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -32,9 +36,14 @@ import 'package:devlogs_flutter_xchange/features/users_list/users_list_navigator
 final getIt = GetIt.instance;
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   getIt.registerSingleton<NetworkRepository>(NetworkRepository());
-  getIt.registerSingleton<UsersRepository>(MockUsersRepository());
-  getIt.registerSingleton<AuthRepository>(MockAuthRepository());
+  getIt.registerSingleton<UsersRepository>(FirebaseUsersRepository());
+  getIt.registerSingleton<AuthRepository>(FirebaseAuthRepository());
   getIt.registerSingleton<LocalStorageRepository>(InsecureLocalStorageRepository());
   getIt.registerSingleton<UserStore>(UserStore());
   getIt.registerSingleton<ThemeStore>(ThemeStore());

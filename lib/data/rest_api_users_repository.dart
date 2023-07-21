@@ -34,7 +34,7 @@ class RestApiUsersRepository implements UsersRepository {
     return right(const User.empty().copyWith(
       name: 'Waleed',
       email: 'waleed@gmail.com',
-      id: 123456,
+      id: '123456',
     ));
   }
 }

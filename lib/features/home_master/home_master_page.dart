@@ -36,7 +36,7 @@ class _HomeMasterState extends State<HomeMasterPage> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(state.user.name),
+                Text(state.user.email),
                 ListTile(
                   title: const Text("Dark theme"),
                   trailing: Switch(

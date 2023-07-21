@@ -1,38 +1,34 @@
 import 'package:devlogs_flutter_xchange/domain/entities/user.dart';
 
-class UserJson {
-  final int id;
+class FirebaseUserJson {
+  final String id;
   final String name;
   final String username;
   final String email;
   final String phone;
-  final String website;
 
-  UserJson({
+  FirebaseUserJson({
     required this.id,
     required this.name,
     required this.username,
     required this.email,
     required this.phone,
-    required this.website,
   });
 
-  factory UserJson.fromJson(Map<String, dynamic> json) => UserJson(
+  factory FirebaseUserJson.fromJson(Map<String, dynamic> json) => FirebaseUserJson(
         id: json['id'],
         name: json['name'],
         username: json['username'],
         email: json['email'],
         phone: json['phone'],
-        website: json['website'],
       );
 
-  User toDomain() => User(
+  User toDomain() => const User.empty().copyWith(
         id: id.toString(),
         name: name,
         username: username,
         email: email,
         phone: phone,
-        website: website,
       );
 
   Map<String, dynamic> toJson() => {
@@ -41,6 +37,5 @@ class UserJson {
         'username': username,
         'email': email,
         'phone': phone,
-        'website': website,
       };
 }
