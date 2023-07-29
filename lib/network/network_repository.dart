@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:http/http.dart' as http;
 import 'package:devlogs_flutter_xchange/domain/failures/network_failure.dart';
 

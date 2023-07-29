@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:devlogs_flutter_xchange/domain/entities/user.dart';
 import 'package:devlogs_flutter_xchange/data/user_json.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/get_user_failure.dart';

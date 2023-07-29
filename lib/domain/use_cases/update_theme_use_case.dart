@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/update_theme_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/domain/stores/theme_store.dart';

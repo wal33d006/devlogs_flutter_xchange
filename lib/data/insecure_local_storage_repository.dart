@@ -1,4 +1,4 @@
-import 'package:dartz/dartz.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/get_local_storage_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/set_local_storage_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
