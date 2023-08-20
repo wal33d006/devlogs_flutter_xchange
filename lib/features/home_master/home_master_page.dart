@@ -18,6 +18,12 @@ class HomeMasterPage extends StatefulWidget {
 class _HomeMasterState extends State<HomeMasterPage> {
   HomeMasterCubit get cubit => widget.cubit;
 
+  final List<Widget> _pages = const [
+    Center(child: Text('One')),
+    Center(child: Text('Two')),
+    Center(child: Text('Three')),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -27,21 +33,71 @@ class _HomeMasterState extends State<HomeMasterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
       body: Center(
         child: BlocBuilder(
           bloc: cubit,
           builder: (context, state) {
             state as HomeMasterState;
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+            return Stack(
+              alignment: Alignment.bottomCenter,
               children: [
-                Text(state.user.email),
-                ListTile(
-                  title: const Text("Dark theme"),
-                  trailing: Switch(
-                    onChanged: cubit.onThemeChanged,
-                    value: state.isDarkTheme,
+                _pages[state.selectedPageIndex],
+                SafeArea(
+                  child: Card(
+                    shape:
+                        StadiumBorder(side: BorderSide(color: Theme.of(context).colorScheme.primary.withOpacity(0.2))),
+                    elevation: 4,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          InkWell(
+                            onTap: () => cubit.onPageUpdated(0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  state.selectedPageIndex == 0 ? Icons.explore : Icons.explore_outlined,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                const Text('Explore'),
+                              ],
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () => cubit.onPageUpdated(1),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  state.selectedPageIndex == 1 ? Icons.grid_view_rounded : Icons.grid_view_outlined,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                const Text('Events'),
+                              ],
+                            ),
+                          ),
+                          InkWell(
+                            onTap: () => cubit.onPageUpdated(2),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(
+                                  state.selectedPageIndex == 2 ? Icons.face : Icons.face_outlined,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                                const Text('Profile'),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
                 )
               ],

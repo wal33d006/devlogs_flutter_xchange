@@ -26,4 +26,6 @@ class HomeMasterCubit extends Cubit<HomeMasterState> {
   }
 
   void onThemeChanged(bool value) => _updateThemeUseCase.execute(value);
+
+  onPageUpdated(int pageIndex) => emit(state.copyWith(selectedPageIndex: pageIndex));
 }

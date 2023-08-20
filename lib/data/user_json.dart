@@ -18,12 +18,12 @@ class UserJson {
   });
 
   factory UserJson.fromJson(Map<String, dynamic> json) => UserJson(
-        id: json['id'],
-        name: json['name'],
-        username: json['username'],
-        email: json['email'],
-        phone: json['phone'],
-        website: json['website'],
+        id: json['id'] as int? ?? 0,
+        name: json['name'] as String? ?? '',
+        username: json['username'] as String? ?? '',
+        email: json['email'] as String? ?? '',
+        phone: json['phone'] as String? ?? '',
+        website: json['website'] as String? ?? '',
       );
 
   User toDomain() => User(
