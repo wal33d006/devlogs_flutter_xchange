@@ -8,6 +8,8 @@ class User extends Equatable {
   final String phone;
   final String website;
 
+  String get firstName => name.split(" ")[0];
+
   const User({
     required this.id,
     required this.name,

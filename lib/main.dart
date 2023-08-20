@@ -11,6 +11,9 @@ import 'package:devlogs_flutter_xchange/domain/use_cases/check_for_existing_user
 import 'package:devlogs_flutter_xchange/domain/use_cases/get_theme_use_case.dart';
 import 'package:devlogs_flutter_xchange/domain/use_cases/social_login_use_case.dart';
 import 'package:devlogs_flutter_xchange/domain/use_cases/update_theme_use_case.dart';
+import 'package:devlogs_flutter_xchange/features/explore/explore_cubit.dart';
+import 'package:devlogs_flutter_xchange/features/explore/explore_initial_params.dart';
+import 'package:devlogs_flutter_xchange/features/explore/explore_navigator.dart';
 import 'package:devlogs_flutter_xchange/features/home_master/home_master_cubit.dart';
 import 'package:devlogs_flutter_xchange/features/home_master/home_master_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/home_master/home_master_navigator.dart';
@@ -104,6 +107,13 @@ void main() async {
   );
   getIt.registerFactoryParam<UserDetailsCubit, UserDetailsInitialParams, dynamic>(
     (params, _) => UserDetailsCubit(params),
+  );
+  getIt.registerSingleton<ExploreNavigator>(ExploreNavigator());
+  getIt.registerFactoryParam<ExploreCubit, ExploreInitialParams, dynamic>(
+    (params, _) => ExploreCubit(
+      params,
+      getIt(),
+    ),
   );
   runApp(
     const MyApp(),

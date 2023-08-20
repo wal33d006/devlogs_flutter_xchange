@@ -1,3 +1,6 @@
+import 'package:devlogs_flutter_xchange/features/explore/explore_initial_params.dart';
+import 'package:devlogs_flutter_xchange/features/explore/explore_page.dart';
+import 'package:devlogs_flutter_xchange/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_master_cubit.dart';
@@ -18,10 +21,10 @@ class HomeMasterPage extends StatefulWidget {
 class _HomeMasterState extends State<HomeMasterPage> {
   HomeMasterCubit get cubit => widget.cubit;
 
-  final List<Widget> _pages = const [
-    Center(child: Text('One')),
-    Center(child: Text('Two')),
-    Center(child: Text('Three')),
+  final List<Widget> _pages = [
+    ExplorePage(cubit: getIt(param1: const ExploreInitialParams())),
+    const Center(child: Text('Two')),
+    const Center(child: Text('Three')),
   ];
 
   @override
