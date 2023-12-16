@@ -18,7 +18,6 @@ import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_cubit.dar
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_navigator.dart';
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_page.dart';
-import 'package:devlogs_flutter_xchange/firebase_options.dart';
 import 'package:devlogs_flutter_xchange/theme/theme_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
