@@ -36,7 +36,9 @@ final getIt = GetIt.instance;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   getIt.registerSingleton<NetworkRepository>(NetworkRepository());
   getIt.registerSingleton<UsersRepository>(FirebaseUsersRepository());
