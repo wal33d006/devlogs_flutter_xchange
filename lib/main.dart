@@ -19,6 +19,7 @@ import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_cubit.dar
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_navigator.dart';
 import 'package:devlogs_flutter_xchange/features/onboarding/onboarding_page.dart';
+import 'package:devlogs_flutter_xchange/firebase_options.dart';
 import 'package:devlogs_flutter_xchange/theme/theme_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -41,8 +42,8 @@ final getIt = GetIt.instance;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
 
   getIt.registerSingleton<NetworkRepository>(NetworkRepository());
   getIt.registerSingleton<UsersRepository>(MockUsersRepository());
