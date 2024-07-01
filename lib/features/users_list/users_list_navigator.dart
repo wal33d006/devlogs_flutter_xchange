@@ -18,7 +18,6 @@ class UsersListNavigator with UserDetailsRoute {
 mixin UsersListRoute {
   openUsersListRoute(UsersListInitialParams initialParams) {
     navigator.push(
-      context,
       UsersListPage(cubit: getIt(param1: initialParams)),
     );
   }

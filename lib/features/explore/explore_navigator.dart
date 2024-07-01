@@ -9,7 +9,6 @@ class ExploreNavigator {}
 mixin ExploreRoute {
   openExplore(ExploreInitialParams initialParams) {
     navigator.push(
-      context,
       ExplorePage(cubit: getIt(param1: initialParams)),
     );
   }

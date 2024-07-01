@@ -42,7 +42,9 @@ class OnboardingCubit extends Cubit<OnboardingState> {
     emit(state.copyWith(isLoading: true));
     _socialLoginUseCase.execute().then(
           (value) => value.fold(
-            (l) => null,
+            (l) {
+              emit(state.copyWith(isLoading: false));
+            },
             (user) {
               emit(state.copyWith(isLoading: false));
               return navigator.openHomeMaster(const HomeMasterInitialParams());

@@ -139,8 +139,19 @@ class _ExploreState extends State<ExplorePage> {
                   ),
                 ),
                 if (state.selectedTabType == TabType.job)
-                  const Center(
-                    child: Text('Jobs'),
+                  Expanded(
+                    child: ListView.builder(
+                        itemCount: state.jobs.length,
+                        itemBuilder: (context, index) {
+                          final job = state.jobs[index];
+
+                          return Card(
+                            child: ListTile(
+                              title: Text(job.title),
+                              subtitle: Text(job.companyName),
+                            ),
+                          );
+                        }),
                   ),
                 if (state.selectedTabType == TabType.talent)
                   const Center(

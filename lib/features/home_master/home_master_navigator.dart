@@ -9,7 +9,6 @@ class HomeMasterNavigator {}
 mixin HomeMasterRoute {
   openHomeMaster(HomeMasterInitialParams initialParams) {
     navigator.push(
-      context,
       HomeMasterPage(cubit: getIt(param1: initialParams)),
     );
   }

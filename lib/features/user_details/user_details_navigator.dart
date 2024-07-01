@@ -9,7 +9,6 @@ class UserDetailsNavigator {}
 mixin UserDetailsRoute {
   openUserDetails(UserDetailsInitialParams initialParams) {
     navigator.push(
-      context,
       UserDetailsPage(cubit: getIt(param1: initialParams)),
     );
   }

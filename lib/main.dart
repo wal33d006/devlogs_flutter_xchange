@@ -1,5 +1,3 @@
-import 'package:devlogs_flutter_xchange/data/firebase/firebase_auth_repository.dart';
-import 'package:devlogs_flutter_xchange/data/firebase/firebase_users_repository.dart';
 import 'package:devlogs_flutter_xchange/data/insecure_local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/data/mock_auth_repository.dart';
 import 'package:devlogs_flutter_xchange/data/mock_users_repository.dart';
@@ -36,6 +34,9 @@ import 'package:devlogs_flutter_xchange/features/users_list/users_list_cubit.dar
 import 'package:devlogs_flutter_xchange/features/users_list/users_list_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/users_list/users_list_navigator.dart';
 
+import 'features/explore/data/repositories/mock_jobs_repository.dart';
+import 'features/explore/domain/repositories/jobs_repository.dart';
+
 final getIt = GetIt.instance;
 
 void main() async {
@@ -45,8 +46,9 @@ void main() async {
   );
 
   getIt.registerSingleton<NetworkRepository>(NetworkRepository());
-  getIt.registerSingleton<UsersRepository>(FirebaseUsersRepository());
-  getIt.registerSingleton<AuthRepository>(FirebaseAuthRepository());
+  getIt.registerSingleton<UsersRepository>(MockUsersRepository());
+  getIt.registerSingleton<AuthRepository>(MockAuthRepository());
+  getIt.registerSingleton<JobsRepository>(MockJobsRepository());
   getIt.registerSingleton<LocalStorageRepository>(InsecureLocalStorageRepository());
   getIt.registerSingleton<UserStore>(UserStore());
   getIt.registerSingleton<ThemeStore>(ThemeStore());
@@ -113,6 +115,7 @@ void main() async {
     (params, _) => ExploreCubit(
       params,
       getIt(),
+      getIt(),
     ),
   );
   runApp(
@@ -130,6 +133,7 @@ class MyApp extends StatelessWidget {
         builder: (context, state) {
           state as bool;
           return MaterialApp(
+            navigatorKey: AppNavigator.navigatorKey,
             title: 'Flutter Demo',
             theme: state ? darkTheme : lightTheme,
             home: OnboardingPage(

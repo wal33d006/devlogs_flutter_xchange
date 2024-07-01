@@ -18,7 +18,6 @@ class OnboardingNavigator with HomeMasterRoute {
 mixin OnboardingRoute {
   openOnboarding(OnboardingInitialParams initialParams) {
     navigator.push(
-      context,
       OnboardingPage(cubit: getIt(param1: initialParams)),
     );
   }
