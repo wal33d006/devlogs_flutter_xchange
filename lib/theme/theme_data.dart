@@ -27,9 +27,9 @@ final lightTheme = ThemeData(
     primary: primaryBlack,
     secondary: Colors.white,
     onPrimary: Colors.white,
-    background: Colors.white,
+    surface: Colors.white,
   ),
-  cardColor: const Color(0xFFF6F6F6),
+  cardColor: Colors.grey,
   textTheme: const TextTheme().copyWith(
     titleMedium: const TextStyle(color: primaryBlack),
     bodyMedium: const TextStyle(
@@ -63,11 +63,17 @@ final lightTheme = ThemeData(
   ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: primaryBlack, width: 0.5)),
+      borderRadius: BorderRadius.circular(5),
+      borderSide: const BorderSide(color: primaryBlack, width: 0.5),
+    ),
     enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: primaryBlack, width: 0.5)),
+      borderRadius: BorderRadius.circular(5),
+      borderSide: const BorderSide(color: primaryBlack, width: 0.5),
+    ),
     focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: primaryBlack, width: 0.5)),
+      borderRadius: BorderRadius.circular(5),
+      borderSide: const BorderSide(color: primaryBlack, width: 0.5),
+    ),
   ),
 ).copyWith(
   pageTransitionsTheme: const PageTransitionsTheme(
@@ -83,7 +89,7 @@ final darkTheme = ThemeData(
     primary: Colors.white,
     secondary: primaryBlack, // white
     onPrimary: primaryBlack, // white
-    background: primaryBlack, // white
+    surface: primaryBlack, // white
   ),
   cardColor: const Color(0xFF444c5e),
   textTheme: const TextTheme().copyWith(
@@ -122,11 +128,17 @@ final darkTheme = ThemeData(
   ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Colors.white, width: 0.5)),
+      borderRadius: BorderRadius.circular(5),
+      borderSide: const BorderSide(color: Colors.white, width: 0.5),
+    ),
     enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Colors.white, width: 0.5)),
+      borderRadius: BorderRadius.circular(5),
+      borderSide: const BorderSide(color: Colors.white, width: 0.5),
+    ),
     focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(5), borderSide: const BorderSide(color: Colors.white, width: 0.5)),
+      borderRadius: BorderRadius.circular(5),
+      borderSide: const BorderSide(color: Colors.white, width: 0.5),
+    ),
   ),
 ).copyWith(
   pageTransitionsTheme: const PageTransitionsTheme(

@@ -12,14 +12,23 @@ class MockJobsRepository implements JobsRepository {
         Job(
           title: 'Senior Flutter Engineer',
           companyName: 'Flutter Xchange',
+          description: 'Database developer required with 4 years of experience',
+          isRemote: false,
+          skills: ['flutter', 'iOS', 'Android', 'Xamarin'],
         ),
         Job(
-          title: 'Senior Go Engineer',
+          title: 'Senior Database Engineer',
           companyName: 'Flutter Xchange',
+          description: 'Flutter developer required with 4 years of experience',
+          isRemote: true,
+          skills: ['flutter', 'iOS', 'Android', 'Xamarin'],
         ),
         Job(
-          title: 'Senior BE Engineer',
+          title: 'Senior Product Manager',
           companyName: 'Flutter Xchange',
+          description: 'Product Manager required with 4 years of experience',
+          isRemote: true,
+          skills: ['flutter', 'project management', 'Android', 'Xamarin'],
         ),
       ],
     );

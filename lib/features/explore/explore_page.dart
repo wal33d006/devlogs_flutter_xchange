@@ -169,29 +169,34 @@ class _ExploreState extends State<ExplorePage> {
                                       job.companyName,
                                       style: Theme.of(context).textTheme.labelSmall,
                                     ),
-                                    trailing: FxChip(
-                                      title: 'remote',
-                                      color: Colors.green[200],
-                                      textColor: Theme.of(context).colorScheme.secondary,
-                                    ),
+                                    trailing: job.isRemote
+                                        ? FxChip(
+                                            title: 'remote',
+                                            color: Colors.green[200],
+                                            textColor: Theme.of(context).colorScheme.secondary,
+                                          )
+                                        : null,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
                                     child: Text(
-                                      'The job opening is for an intermediate level database developer with 1-2 years of experience',
+                                      job.description,
                                       style: Theme.of(context).textTheme.labelSmall,
                                     ),
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
                                     child: Row(
-                                      children: [
-                                        FxChip(title: 'Db'),
-                                        SizedBox(width: 2),
-                                        FxChip(title: 'Flutter'),
-                                        SizedBox(width: 2),
-                                        FxChip(title: 'iOS'),
-                                      ],
+                                      children: job.skills
+                                          .map(
+                                            (e) => Row(
+                                              children: [
+                                                FxChip(title: e),
+                                                const SizedBox(width: 2),
+                                              ],
+                                            ),
+                                          )
+                                          .toList(),
                                     ),
                                   ),
                                   const SizedBox(height: 8),
