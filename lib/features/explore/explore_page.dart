@@ -1,4 +1,4 @@
-import 'package:devlogs_flutter_xchange/features/explore/domain/models/tab_type.dart';
+import 'package:devlogs_flutter_xchange/domain/entities/tab_type.dart';
 import 'package:devlogs_flutter_xchange/features/explore/explore_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -140,18 +140,66 @@ class _ExploreState extends State<ExplorePage> {
                 ),
                 if (state.selectedTabType == TabType.job)
                   Expanded(
-                    child: ListView.builder(
-                        itemCount: state.jobs.length,
-                        itemBuilder: (context, index) {
-                          final job = state.jobs[index];
-
-                          return Card(
-                            child: ListTile(
-                              title: Text(job.title),
-                              subtitle: Text(job.companyName),
-                            ),
-                          );
-                        }),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                      child: ListView.builder(
+                          itemCount: state.jobs.length,
+                          itemBuilder: (context, index) {
+                            final job = state.jobs[index];
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 8),
+                              decoration: BoxDecoration(
+                                color: Colors.grey[200],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Column(
+                                children: [
+                                  ListTile(
+                                    leading: CircleAvatar(
+                                      backgroundColor: Theme.of(context).colorScheme.primary,
+                                      child: Text(job.title[0]),
+                                    ),
+                                    title: Text(
+                                      job.title,
+                                      style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                    subtitle: Text(
+                                      job.companyName,
+                                      style: Theme.of(context).textTheme.labelSmall,
+                                    ),
+                                    trailing: FxChip(
+                                      title: 'remote',
+                                      color: Colors.green[200],
+                                      textColor: Theme.of(context).colorScheme.secondary,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
+                                    child: Text(
+                                      'The job opening is for an intermediate level database developer with 1-2 years of experience',
+                                      style: Theme.of(context).textTheme.labelSmall,
+                                    ),
+                                  ),
+                                  const Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4),
+                                    child: Row(
+                                      children: [
+                                        FxChip(title: 'Db'),
+                                        SizedBox(width: 2),
+                                        FxChip(title: 'Flutter'),
+                                        SizedBox(width: 2),
+                                        FxChip(title: 'iOS'),
+                                      ],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                ],
+                              ),
+                            );
+                          }),
+                    ),
                   ),
                 if (state.selectedTabType == TabType.talent)
                   const Center(
@@ -161,5 +209,37 @@ class _ExploreState extends State<ExplorePage> {
             ),
           );
         });
+  }
+}
+
+class FxChip extends StatelessWidget {
+  final String title;
+  final Color? color;
+  final Color? textColor;
+
+  const FxChip({
+    super.key,
+    required this.title,
+    this.color = Colors.white,
+    this.textColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(100),
+        ),
+        color: color,
+      ),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.labelSmall?.copyWith(
+              color: textColor ?? Theme.of(context).colorScheme.primary,
+            ),
+      ),
+    );
   }
 }

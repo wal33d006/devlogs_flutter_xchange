@@ -1,6 +1,6 @@
 import 'package:devlogs_flutter_xchange/domain/entities/user.dart';
-import 'package:devlogs_flutter_xchange/features/explore/domain/models/job.dart';
-import 'package:devlogs_flutter_xchange/features/explore/domain/models/tab_type.dart';
+import 'package:devlogs_flutter_xchange/domain/entities/job.dart';
+import 'package:devlogs_flutter_xchange/domain/entities/tab_type.dart';
 import 'package:devlogs_flutter_xchange/features/explore/explore_initial_params.dart';
 
 class ExploreState {
