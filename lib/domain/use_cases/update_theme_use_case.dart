@@ -1,8 +1,8 @@
 import 'package:fpdart/fpdart.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/update_theme_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
-import 'package:devlogs_flutter_xchange/domain/stores/theme_store.dart';
-import 'package:devlogs_flutter_xchange/global.dart';
+import 'package:devlogs_flutter_xchange/data/datasources/theme_store.dart';
+import 'package:devlogs_flutter_xchange/core/constants/global.dart';
 
 class UpdateThemeUseCase {
   final ThemeStore _themeStore;

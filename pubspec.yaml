@@ -30,7 +30,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.5
   flutter_bloc: ^8.1.2
   get_it: ^7.3.0
   fpdart: ^1.0.0
@@ -45,6 +44,8 @@ dependencies:
   google_sign_in: ^6.1.4
   firebase_auth: ^4.7.1
   cloud_firestore: ^4.8.3
+  dio: ^5.9.0
+  talker_dio_logger: ^5.0.2
 
 dev_dependencies:
   flutter_test:
