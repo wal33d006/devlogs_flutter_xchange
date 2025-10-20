@@ -1,8 +1,9 @@
 import 'package:devlogs_flutter_xchange/features/explore/explore_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/explore/explore_page.dart';
-import 'package:devlogs_flutter_xchange/main.dart';
+import 'package:devlogs_flutter_xchange/injection_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'home_master_cubit.dart';
 import 'home_master_state.dart';
 
@@ -47,11 +48,16 @@ class _HomeMasterState extends State<HomeMasterPage> {
                 _pages[state.selectedPageIndex],
                 SafeArea(
                   child: Card(
-                    shape:
-                        StadiumBorder(side: BorderSide(color: Theme.of(context).colorScheme.primary.withOpacity(0.2))),
+                    shape: StadiumBorder(
+                        side: BorderSide(
+                            color: Theme.of(context)
+                                .colorScheme
+                                .primary
+                                .withOpacity(0.2))),
                     elevation: 4,
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 40, vertical: 16),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,7 +69,9 @@ class _HomeMasterState extends State<HomeMasterPage> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(
-                                  state.selectedPageIndex == 0 ? Icons.explore : Icons.explore_outlined,
+                                  state.selectedPageIndex == 0
+                                      ? Icons.explore
+                                      : Icons.explore_outlined,
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const Text('Explore'),
@@ -77,7 +85,9 @@ class _HomeMasterState extends State<HomeMasterPage> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(
-                                  state.selectedPageIndex == 1 ? Icons.grid_view_rounded : Icons.grid_view_outlined,
+                                  state.selectedPageIndex == 1
+                                      ? Icons.grid_view_rounded
+                                      : Icons.grid_view_outlined,
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const Text('Events'),
@@ -91,7 +101,9 @@ class _HomeMasterState extends State<HomeMasterPage> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 Icon(
-                                  state.selectedPageIndex == 2 ? Icons.face : Icons.face_outlined,
+                                  state.selectedPageIndex == 2
+                                      ? Icons.face
+                                      : Icons.face_outlined,
                                   color: Theme.of(context).colorScheme.primary,
                                 ),
                                 const Text('Profile'),

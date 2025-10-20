@@ -3,7 +3,7 @@ import 'package:devlogs_flutter_xchange/domain/entities/user.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/existing_user_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/users_repository.dart';
-import 'package:devlogs_flutter_xchange/domain/stores/user_store.dart';
+import 'package:devlogs_flutter_xchange/data/datasources/user_store.dart';
 
 class CheckForExistingUserUseCase {
   final UsersRepository _usersRepository;

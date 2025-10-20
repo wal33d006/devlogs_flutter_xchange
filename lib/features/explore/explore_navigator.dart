@@ -1,8 +1,8 @@
 import 'package:devlogs_flutter_xchange/features/explore/explore_initial_params.dart';
 import 'package:devlogs_flutter_xchange/features/explore/explore_page.dart';
+import 'package:devlogs_flutter_xchange/injection_container.dart';
+import 'package:devlogs_flutter_xchange/config/navigation/app_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:devlogs_flutter_xchange/main.dart';
-import 'package:devlogs_flutter_xchange/navigation/app_navigator.dart';
 
 class ExploreNavigator {}
 

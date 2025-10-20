@@ -1,5 +1,5 @@
-import 'package:devlogs_flutter_xchange/domain/stores/theme_store.dart';
-import 'package:devlogs_flutter_xchange/domain/stores/user_store.dart';
+import 'package:devlogs_flutter_xchange/data/datasources/theme_store.dart';
+import 'package:devlogs_flutter_xchange/data/datasources/user_store.dart';
 import 'package:devlogs_flutter_xchange/domain/use_cases/update_theme_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'home_master_initial_params.dart';

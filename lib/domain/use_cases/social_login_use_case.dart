@@ -4,7 +4,7 @@ import 'package:devlogs_flutter_xchange/domain/failures/login_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/auth_repository.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/users_repository.dart';
-import 'package:devlogs_flutter_xchange/domain/stores/user_store.dart';
+import 'package:devlogs_flutter_xchange/data/datasources/user_store.dart';
 
 class SocialLoginUseCase {
   final AuthRepository _authRepository;

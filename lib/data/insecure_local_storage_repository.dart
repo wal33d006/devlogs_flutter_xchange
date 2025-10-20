@@ -1,7 +1,8 @@
-import 'package:fpdart/fpdart.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/get_local_storage_failure.dart';
+import 'package:devlogs_flutter_xchange/domain/failures/remove_local_storage_failure%20copy.dart';
 import 'package:devlogs_flutter_xchange/domain/failures/set_local_storage_failure.dart';
 import 'package:devlogs_flutter_xchange/domain/repositories/local_storage_repository.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // TODO: Refactor repeated code
@@ -17,7 +18,8 @@ class InsecureLocalStorageRepository implements LocalStorageRepository {
   }
 
   @override
-  Future<Either<SetLocalStorageFailure, bool>> setString(String key, String value) async {
+  Future<Either<SetLocalStorageFailure, bool>> setString(
+      String key, String value) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setString(key, value);
@@ -38,13 +40,25 @@ class InsecureLocalStorageRepository implements LocalStorageRepository {
   }
 
   @override
-  Future<Either<SetLocalStorageFailure, bool>> setBool(String key, bool value) async {
+  Future<Either<SetLocalStorageFailure, bool>> setBool(
+      String key, bool value) async {
     try {
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       await prefs.setBool(key, value);
       return right(true);
     } catch (ex) {
       return left(SetLocalStorageFailure(error: ex.toString()));
+    }
+  }
+
+  @override
+  Future<Either<RemoveLocalStorageFailure, bool>> remove(String key) async {
+    try {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.remove(key);
+      return right(true);
+    } catch (ex) {
+      return left(RemoveLocalStorageFailure(error: ex.toString()));
     }
   }
 }
